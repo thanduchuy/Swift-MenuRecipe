@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="3Nt-M7-vs4">
+            <objects>
+                <viewController id="Zpy-58-B9b" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="olI-nA-EKR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="hUy-Ar-W7Q">
+                                <rect key="frame" x="16" y="60" width="382" height="537.5"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeY-MQ-c3y">
+                                <rect key="frame" x="16" y="613.5" width="382" height="52"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="40"/>
+                                <color key="textColor" name="red"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright by Đức Huy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6j-6Y-nLO">
+                                <rect key="frame" x="16" y="673.5" width="382" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="1" green="0.29411764709999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ak9-25-BKh"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="hUy-Ar-W7Q" firstAttribute="leading" secondItem="ak9-25-BKh" secondAttribute="leading" constant="16" id="3V4-Ru-6cT"/>
+                            <constraint firstItem="aeY-MQ-c3y" firstAttribute="top" secondItem="hUy-Ar-W7Q" secondAttribute="bottom" constant="16" id="Me9-M0-MkP"/>
+                            <constraint firstItem="a6j-6Y-nLO" firstAttribute="top" secondItem="aeY-MQ-c3y" secondAttribute="bottom" constant="8" id="YWt-mY-KEc"/>
+                            <constraint firstItem="ak9-25-BKh" firstAttribute="trailing" secondItem="hUy-Ar-W7Q" secondAttribute="trailing" constant="16" id="ZuD-nU-yHO"/>
+                            <constraint firstItem="aeY-MQ-c3y" firstAttribute="leading" secondItem="ak9-25-BKh" secondAttribute="leading" constant="16" id="eIa-Cs-ngn"/>
+                            <constraint firstItem="hUy-Ar-W7Q" firstAttribute="height" secondItem="olI-nA-EKR" secondAttribute="height" multiplier="0.6" id="hBi-hy-Rye"/>
+                            <constraint firstItem="a6j-6Y-nLO" firstAttribute="leading" secondItem="ak9-25-BKh" secondAttribute="leading" constant="16" id="ldY-5T-j1M"/>
+                            <constraint firstItem="hUy-Ar-W7Q" firstAttribute="top" secondItem="ak9-25-BKh" secondAttribute="top" constant="16" id="qnV-bX-x8e"/>
+                            <constraint firstItem="ak9-25-BKh" firstAttribute="trailing" secondItem="a6j-6Y-nLO" secondAttribute="trailing" constant="16" id="xyP-C8-gpk"/>
+                            <constraint firstItem="ak9-25-BKh" firstAttribute="trailing" secondItem="aeY-MQ-c3y" secondAttribute="trailing" constant="16" id="yiI-m7-3Ot"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9j-DR-rRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo_transparent" width="1200" height="1200"/>
+        <namedColor name="red">
+            <color red="0.97600001096725464" green="0.37299999594688416" blue="0.38400000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
