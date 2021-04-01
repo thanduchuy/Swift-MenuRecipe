@@ -22,6 +22,7 @@ class SQLiteService {
     init() {
         db = createDatabaseLookingMenu()
         createTableDiet()
+        createTableDietFavourite()
     }
     
     func createDatabaseLookingMenu() -> OpaquePointer? {
