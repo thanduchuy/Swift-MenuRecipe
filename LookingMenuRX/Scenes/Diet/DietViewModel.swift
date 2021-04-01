@@ -40,8 +40,8 @@ extension DietViewModel: ViewModel {
                 usecase.getAllDiet().asDriverOnErrorJustComplete()
             }
             .do {
-                output.$selectDiet.accept($0[0])
-                output.$selectDateDiet.accept($0[0].recipeSessions[0].recipes)
+                output.$selectDiet.accept($0.first ?? Diet())
+                output.$selectDateDiet.accept($0.first?.recipeSessions.first?.recipes ?? [RecipeDiet]())
             }
             .drive(output.$diets)
             .disposed(by: disposeBag)
@@ -70,7 +70,13 @@ extension DietViewModel: ViewModel {
         
         input.selectSession.asDriver()
             .do { selectIndexSession.accept($0) }
-            .map { output.selectDateDiet[$0] }
+            .map {
+                if $0 < output.selectDateDiet.count {
+                    return output.selectDateDiet[$0]
+                } else {
+                    return RecipeDiet()
+                }
+            }
             .drive ( output.$selectSessionRecipe )
             .disposed(by: disposeBag)
         
@@ -82,11 +88,13 @@ extension DietViewModel: ViewModel {
             .do {
                 if $0.isEmpty {
                     navigator.showAlertError()
-                    output.$selectDateDiet.accept(output.selectDiet.recipeSessions[0].recipes)
+                    output.$selectDateDiet.accept(output.selectDiet.recipeSessions.first?.recipes ?? [RecipeDiet]())
                 } else {
                     output.$selectDateDiet.accept($0)
                 }
-                output.$selectSessionRecipe.accept(output.selectDateDiet[selectIndexSession.value])
+                if selectIndexSession.value < output.selectDateDiet.count  {
+                    output.$selectSessionRecipe.accept(output.selectDateDiet[selectIndexSession.value])
+                }
             }
             .drive()
             .disposed(by: disposeBag)

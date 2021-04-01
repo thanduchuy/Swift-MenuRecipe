@@ -1,0 +1,6 @@
+framework module Pods_LookingMenuRX {
+  umbrella header "Pods-LookingMenuRX-umbrella.h"
+
+  export *
+  module * { export * }
+}
