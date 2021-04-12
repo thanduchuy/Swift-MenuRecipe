@@ -27,6 +27,10 @@ target 'LookingMenuRX' do
   pod 'SDWebImage'
   pod 'MBProgressHUD'
   pod 'SwiftLint'
+
+  # FireBase
+  pod 'Firebase/Database'
+  pod 'Firebase/Core'
 	
   use_frameworks!
 

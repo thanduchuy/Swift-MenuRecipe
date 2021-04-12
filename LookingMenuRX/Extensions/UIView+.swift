@@ -23,4 +23,14 @@ extension UIView {
             $0.layer.shadowRadius = 1.0
         }
     }
+    
+    func shadowField() {
+        self.do {
+            $0.layer.masksToBounds = false
+            $0.layer.shadowRadius = 3.0
+            $0.layer.shadowColor = UIColor.black.cgColor
+            $0.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+            $0.layer.shadowOpacity = 1.0
+        }
+    }
 }
