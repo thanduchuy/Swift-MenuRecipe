@@ -20,6 +20,7 @@ final class DetailRecipeController: UIViewController, Bindable {
     @IBOutlet private weak var bottomBarView: UIView!
     @IBOutlet weak var recipeFavouriteButton: UIButton!
     @IBOutlet weak var goBackButton: UIButton!
+    @IBOutlet weak var orderButton: UIButton!
     
     var viewModel: DetailRecipeViewModel!
     
@@ -34,7 +35,8 @@ final class DetailRecipeController: UIViewController, Bindable {
             tapFavouriteButton: recipeFavouriteButton.rx.tap.asDriver(),
             tapGoVideo: goDetailRecipeVideoButton.rx.tap.asDriver(),
             tapGoText: goDetailRecipeTextButton.rx.tap.asDriver(),
-            backTrigger: goBackButton.rx.tap.asDriver())
+            backTrigger: goBackButton.rx.tap.asDriver(),
+            orderTrigger: orderButton.rx.tap.asDriver())
         
         let output = viewModel.transform(input, disposeBag: rx.disposeBag)
         

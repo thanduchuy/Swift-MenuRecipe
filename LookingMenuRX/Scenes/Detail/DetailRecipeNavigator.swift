@@ -6,6 +6,7 @@ protocol DetailRecipeNavigatorType {
     func goDetailVideo(recipe: Recipe)
     func goDetailText(recipe: Recipe)
     func goBackView()
+    func goOderView(recipe: Recipe)
 }
 
 struct DetailRecipeNavigator: DetailRecipeNavigatorType {
@@ -30,6 +31,16 @@ struct DetailRecipeNavigator: DetailRecipeNavigatorType {
         let navigator = TextRecipeNavigator(navigationController: navigationController)
         let useCase = TextRecipeUseCase()
         let viewModel = TextRecipeViewModel(navigator: navigator, usecase: useCase, recipe: recipe)
+        
+        viewController.bindViewModel(to: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func goOderView(recipe: Recipe) {
+        let viewController = OrderViewController.instantiate()
+        let navigator = OrderNavigation(navigationController: navigationController)
+        let useCase = OrderUseCase()
+        let viewModel = OrderViewModel(navigator: navigator, useCase: useCase, recipe: recipe)
         
         viewController.bindViewModel(to: viewModel)
         navigationController.pushViewController(viewController, animated: true)

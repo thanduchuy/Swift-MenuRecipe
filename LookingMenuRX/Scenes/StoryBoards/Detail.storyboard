@@ -31,6 +31,13 @@
                                             <color key="titleColor" red="0.02922659209" green="0.02922659209" blue="0.02922659209" alpha="0.70232184200000003" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcC-oK-lDe">
+                                        <rect key="frame" x="171" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="9nz-lK-mtW"/>
+                                        </constraints>
+                                        <state key="normal" image="orderNow"/>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="He5-kI-bgZ">
                                         <rect key="frame" x="342" y="1.5" width="40" height="37.5"/>
                                         <constraints>
@@ -195,6 +202,7 @@
                         <outlet property="ingredientTableView" destination="gIe-TU-AzE" id="cqJ-fU-Gew"/>
                         <outlet property="minuteCookingLabel" destination="IUj-01-fv2" id="qHK-RN-jDo"/>
                         <outlet property="nameRecipeLabel" destination="tlY-l0-i79" id="CBf-iF-Abg"/>
+                        <outlet property="orderButton" destination="CcC-oK-lDe" id="8NB-oH-vea"/>
                         <outlet property="recipeFavouriteButton" destination="He5-kI-bgZ" id="oUf-GH-T3t"/>
                         <outlet property="recipeImage" destination="aY1-JF-Xva" id="Hf4-4x-Hk3"/>
                         <outletCollection property="changeTableLabel" destination="T8C-Fh-vP4" collectionClass="NSMutableArray" id="Cwr-Po-PvZ"/>
@@ -513,6 +521,7 @@
         <image name="chevron.left.circle.fill" catalog="system" width="128" height="121"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="logo" width="1200" height="1200"/>
+        <image name="orderNow" width="512" height="512"/>
         <image name="text.book.closed.fill" catalog="system" width="115" height="128"/>
         <image name="video.fill" catalog="system" width="128" height="82"/>
         <namedColor name="black">

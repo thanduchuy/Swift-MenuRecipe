@@ -17,6 +17,7 @@ extension DetailRecipeViewModel: ViewModel {
         let tapGoVideo: Driver<Void>
         let tapGoText: Driver<Void>
         let backTrigger: Driver<Void>
+        let orderTrigger: Driver<Void>
     }
     
     struct Output {
@@ -71,6 +72,13 @@ extension DetailRecipeViewModel: ViewModel {
         input.tapGoText
             .do { _ in
                 navigator.goDetailText(recipe: recipe)
+            }
+            .drive()
+            .disposed(by: disposeBag)
+        
+        input.orderTrigger
+            .do { _ in
+                navigator.goOderView(recipe: recipe)
             }
             .drive()
             .disposed(by: disposeBag)

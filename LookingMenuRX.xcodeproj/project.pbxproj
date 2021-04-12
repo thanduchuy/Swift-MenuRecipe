@@ -120,6 +120,15 @@
 		13A28C3425D137A800088110 /* DetailRecipeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A28C3325D137A800088110 /* DetailRecipeNavigator.swift */; };
 		13A28C3825D137BA00088110 /* DetailRecipeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A28C3725D137BA00088110 /* DetailRecipeUseCase.swift */; };
 		33D2760FA4C35CA251748827 /* Pods_LookingMenuRX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13863AA6800FAE9C6F51446 /* Pods_LookingMenuRX.framework */; };
+		342C45E72623D4EC00557699 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342C45E62623D4EC00557699 /* FirebaseService.swift */; };
+		342C45EB2623D68900557699 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 342C45EA2623D68900557699 /* GoogleService-Info.plist */; };
+		342C45EF2623D84F00557699 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342C45EE2623D84F00557699 /* Order.swift */; };
+		342C45F42623E75F00557699 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342C45F32623E75F00557699 /* OrderViewController.swift */; };
+		342C45FC2623E7B000557699 /* Oder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342C45FB2623E7B000557699 /* Oder.storyboard */; };
+		342C46002623ECC100557699 /* OderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342C45FF2623ECC100557699 /* OderUseCase.swift */; };
+		342C46042623ECD000557699 /* OrderNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342C46032623ECD000557699 /* OrderNavigation.swift */; };
+		342C46082623ECE100557699 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342C46072623ECE100557699 /* OrderViewModel.swift */; };
+		342C460C2623ED3E00557699 /* OrderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342C460B2623ED3E00557699 /* OrderRepository.swift */; };
 		74EEFF48D0F4417BCBA8F322 /* Pods_LookingMenuRXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A7901D06808412EC4D9706 /* Pods_LookingMenuRXTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -250,6 +259,15 @@
 		13A28C2F25D1374400088110 /* DetailRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeViewModel.swift; sourceTree = "<group>"; };
 		13A28C3325D137A800088110 /* DetailRecipeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeNavigator.swift; sourceTree = "<group>"; };
 		13A28C3725D137BA00088110 /* DetailRecipeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeUseCase.swift; sourceTree = "<group>"; };
+		342C45E62623D4EC00557699 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		342C45EA2623D68900557699 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		342C45EE2623D84F00557699 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		342C45F32623E75F00557699 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderViewController.swift; path = LookingMenuRX/Scenes/Order/OrderViewController.swift; sourceTree = SOURCE_ROOT; };
+		342C45FB2623E7B000557699 /* Oder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Oder.storyboard; sourceTree = "<group>"; };
+		342C45FF2623ECC100557699 /* OderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OderUseCase.swift; sourceTree = "<group>"; };
+		342C46032623ECD000557699 /* OrderNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNavigation.swift; sourceTree = "<group>"; };
+		342C46072623ECE100557699 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		342C460B2623ED3E00557699 /* OrderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRepository.swift; sourceTree = "<group>"; };
 		7B57BE1D1262BD3DD2F3BEBF /* Pods-LookingMenuRX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LookingMenuRX.debug.xcconfig"; path = "Target Support Files/Pods-LookingMenuRX/Pods-LookingMenuRX.debug.xcconfig"; sourceTree = "<group>"; };
 		87485253BBAA4982CEF71925 /* Pods-LookingMenuRXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LookingMenuRXTests.release.xcconfig"; path = "Target Support Files/Pods-LookingMenuRXTests/Pods-LookingMenuRXTests.release.xcconfig"; sourceTree = "<group>"; };
 		A13863AA6800FAE9C6F51446 /* Pods_LookingMenuRX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LookingMenuRX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,6 +319,7 @@
 		132C820B25C932F2001A471B /* LookingMenuRX */ = {
 			isa = PBXGroup;
 			children = (
+				342C45EA2623D68900557699 /* GoogleService-Info.plist */,
 				132C829625C93A10001A471B /* Platform */,
 				132C825225C93661001A471B /* Utils */,
 				132C825F25C93719001A471B /* Scenes */,
@@ -343,6 +362,7 @@
 				1366A3C625C9465F0074D1C4 /* Recipe.swift */,
 				1366A3CD25C9465F0074D1C4 /* TabBar.swift */,
 				1366A3C725C9465F0074D1C4 /* Video.swift */,
+				342C45EE2623D84F00557699 /* Order.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -376,6 +396,7 @@
 		132C825F25C93719001A471B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				342C45F22623E6E900557699 /* Order */,
 				1378E72325E5418100FDA45B /* Loading */,
 				135417B025E28EA900E2E75E /* DetailText */,
 				133289FA25E263C400805371 /* DetailVideo */,
@@ -403,6 +424,7 @@
 				1373009F25E5F0B10010C996 /* Diet.storyboard */,
 				137300A025E5F0B10010C996 /* Ingredient.storyboard */,
 				132C828B25C9395A001A471B /* Base.lproj */,
+				342C45FB2623E7B000557699 /* Oder.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -419,6 +441,7 @@
 		132C829625C93A10001A471B /* Platform */ = {
 			isa = PBXGroup;
 			children = (
+				342C45E52623D4D600557699 /* Firebase */,
 				1377BAF825CA30F90056589D /* Sqlite */,
 				132C829825C93A85001A471B /* Repositories */,
 				132C829725C93A75001A471B /* Services */,
@@ -442,6 +465,7 @@
 				1377BAEC25CA2D110056589D /* SearchRepository.swift */,
 				1377BAFF25CA3A2E0056589D /* FavouriteRepository.swift */,
 				1377BB0D25CA45BC0056589D /* DietRepository.swift */,
+				342C460B2623ED3E00557699 /* OrderRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -714,6 +738,25 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		342C45E52623D4D600557699 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				342C45E62623D4EC00557699 /* FirebaseService.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		342C45F22623E6E900557699 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				342C45F32623E75F00557699 /* OrderViewController.swift */,
+				342C45FF2623ECC100557699 /* OderUseCase.swift */,
+				342C46032623ECD000557699 /* OrderNavigation.swift */,
+				342C46072623ECE100557699 /* OrderViewModel.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
 		4ED7514F284A5A184722C0FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -824,7 +867,9 @@
 				132C829025C93973001A471B /* Main.storyboard in Resources */,
 				137300A125E5F0B10010C996 /* Diet.storyboard in Resources */,
 				1378E71F25E5417E00FDA45B /* LoadingScreen.xib in Resources */,
+				342C45EB2623D68900557699 /* GoogleService-Info.plist in Resources */,
 				137300A225E5F0B10010C996 /* Ingredient.storyboard in Resources */,
+				342C45FC2623E7B000557699 /* Oder.storyboard in Resources */,
 				137300AB25E5F0E80010C996 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -913,10 +958,12 @@
 				136F7EC625D977BA00E6198D /* FavouriteNavigator.swift in Sources */,
 				1367B06525CA74030000411E /* WelcomeViewNavigator.swift in Sources */,
 				135EDC1D25CB951B003C3697 /* HomeViewController.swift in Sources */,
+				342C460C2623ED3E00557699 /* OrderRepository.swift in Sources */,
 				1366A3D225C9465F0074D1C4 /* ResultSearchResponse.swift in Sources */,
 				1366A3D325C9465F0074D1C4 /* Diet.swift in Sources */,
 				1373DA7A25CECDA600FF28DF /* SearchViewModel.swift in Sources */,
 				136FE3C225DCB27A0070C590 /* IngredientViewModel.swift in Sources */,
+				342C45EF2623D84F00557699 /* Order.swift in Sources */,
 				135EDC2925CB9694003C3697 /* HomeNavigator.swift in Sources */,
 				1366A40225C955E60074D1C4 /* RecipeSession.swift in Sources */,
 				136D229D25E39DB700CAE140 /* Notification+.swift in Sources */,
@@ -928,6 +975,7 @@
 				1373DA7725CECDA600FF28DF /* SearchViewController.swift in Sources */,
 				1377BB0025CA3A2E0056589D /* FavouriteRepository.swift in Sources */,
 				1367B09B25CA9B090000411E /* TabBarCollectionViewCell.swift in Sources */,
+				342C46042623ECD000557699 /* OrderNavigation.swift in Sources */,
 				1367B09225CA82820000411E /* UIViewController+.swift in Sources */,
 				135DC62225C9A4DD00CA969A /* UrlAPIRecipe.swift in Sources */,
 				1366A3D425C9465F0074D1C4 /* InformationResponse.swift in Sources */,
@@ -944,6 +992,7 @@
 				1366A3FE25C953430074D1C4 /* Steps.swift in Sources */,
 				1367B09125CA82820000411E /* UITextField+.swift in Sources */,
 				135DC62E25C9A5FB00CA969A /* InformationRecipeRequest.swift in Sources */,
+				342C46082623ECE100557699 /* OrderViewModel.swift in Sources */,
 				13A28C2325D133F800088110 /* DetailRecipeController.swift in Sources */,
 				135EDC3125CB9DFD003C3697 /* HomeUseCase.swift in Sources */,
 				1377BAFA25CA312D0056589D /* SQLiteService.swift in Sources */,
@@ -965,6 +1014,7 @@
 				136E557D25DFCD33001CD1B3 /* DropDownTableCell.swift in Sources */,
 				1367B02525CA50320000411E /* Instances.swift in Sources */,
 				135DC62625C9A53D00CA969A /* SearchByNameRequest.swift in Sources */,
+				342C46002623ECC100557699 /* OderUseCase.swift in Sources */,
 				135417B425E28EC000E2E75E /* TextRecipeController.swift in Sources */,
 				136FE3BE25DCB2580070C590 /* IngredientNavigation.swift in Sources */,
 				136F7EBB25D976DA00E6198D /* FavouriteRecipeTableCell.swift in Sources */,
@@ -983,8 +1033,10 @@
 				1377BAE925CA2B100056589D /* RecipeRepository.swift in Sources */,
 				1367B09525CA82820000411E /* UIView+.swift in Sources */,
 				135EDC2D25CB9D1E003C3697 /* HomeViewModel.swift in Sources */,
+				342C45E72623D4EC00557699 /* FirebaseService.swift in Sources */,
 				135417BB25E28F1500E2E75E /* TextRecipeViewModel.swift in Sources */,
 				1377BB0E25CA45BC0056589D /* DietRepository.swift in Sources */,
+				342C45F42623E75F00557699 /* OrderViewController.swift in Sources */,
 				1366A3D525C9465F0074D1C4 /* ResultSearchByIngredientsResponse.swift in Sources */,
 				1367B08F25CA82820000411E /* UILabel+.swift in Sources */,
 				135DC60025C9978800CA969A /* BaseRequest.swift in Sources */,
