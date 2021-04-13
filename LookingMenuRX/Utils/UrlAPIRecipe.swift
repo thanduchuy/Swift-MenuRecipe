@@ -19,6 +19,6 @@ final class UrlAPIRecipe {
         "https://spoonacular.com/cdn/%@_100x100/%@"
     static let urlRecipeNutrient = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByNutrients?number=50&maxCalories=%f"
     static let urlEmbebYoutube = "https://www.youtube.com/embed/%@"
-    static let urlSearchByIngredients = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=%@&number=5"
+    static let urlSearchByIngredients = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=%@&number=15"
 }
 

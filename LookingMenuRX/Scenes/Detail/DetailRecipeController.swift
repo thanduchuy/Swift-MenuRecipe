@@ -85,8 +85,8 @@ final class DetailRecipeController: UIViewController, Bindable {
 extension DetailRecipeController {
     var backgroundButtonBinding: Binder<Bool> {
         return Binder(self) { viewController, check in
-            let image = check ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
-            viewController.recipeFavouriteButton.setBackgroundImage(image, for: .normal)
+            let image = check ? UIImage(named: "heartRed") : UIImage(named: "heart")
+            viewController.recipeFavouriteButton.setImage(image, for: .normal)
         }
     }
     

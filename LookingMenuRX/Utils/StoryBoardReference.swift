@@ -7,7 +7,7 @@ enum StoryBoardReference: String {
     case ingredient = "Ingredient"
     case diet = "Diet"
     case favourite = "Favourite"
-    case oder = "Oder"
+    case oder = "Order"
     
     var storyBoard: UIStoryboard {
         return UIStoryboard(name: self.rawValue, bundle: nil)

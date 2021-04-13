@@ -11,7 +11,14 @@ struct FavouriteUseCase: FavouriteUseCaseType {
     let repository = FavouriteRepository()
     
     func getAllRecipeFavourite() -> Observable<[Recipe]> {
-        return repository.getAllFavouriteRecipe()
+        return repository.getAllFavouriteRecipe().map { $0.map { favourite in
+            var recipe = Recipe()
+            recipe.id = favourite.id
+            recipe.image = favourite.image
+            recipe.title = favourite.title
+            recipe.readyInMinutes = favourite.readyInMinutes
+            return recipe
+        }}
     }
     
     func deleteRecipeFavourite(id: Int) -> Observable<Void> {

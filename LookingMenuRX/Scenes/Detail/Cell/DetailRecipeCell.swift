@@ -88,7 +88,7 @@ final class DetailRecipeCell: UITableViewCell, Reusable {
                 constant: -ConstantRecipeCell.constantDetailBG)
         ])
 
-        backgroundColor = .systemGray6
+        backgroundColor = .clear
         detailRecipeBackground.cornerCircle()
         addDetailImage()
         addDetailTitle()

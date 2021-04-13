@@ -1,6 +1,0 @@
-framework module Pods_LookingMenuRXTests {
-  umbrella header "Pods-LookingMenuRXTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

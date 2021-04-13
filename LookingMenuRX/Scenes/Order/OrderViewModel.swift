@@ -83,6 +83,13 @@ extension OrderViewModel: ViewModel {
                 useCase.addOrder(order: $0)
                     .asDriverOnErrorJustComplete()
             }
+            .flatMapLatest {
+                navigator.showAlert()
+                    .asDriverOnErrorJustComplete()
+            }
+            .do { _ in
+                navigator.goBackView()
+            }
             .drive()
             .disposed(by: disposeBag)
         

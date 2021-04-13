@@ -1,6 +1,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RealmSwift
 
 protocol AddDietUseCaseType {
     func calculatorCalor(height: String,
@@ -45,7 +46,23 @@ struct AddDietUseCase: AddDietUseCaseType {
             let nextDay = DateComponents(year: now.year, month: now.month, day: (now.day ?? 1) + element )
             guard let date = Calendar.current.date(from: nextDay) else { return result }
             let recipes = getDietSessionMenu(list: &listRecipe)
-            let recipeSession = RecipeSession(date: date, recipes: recipes)
+            let realmRecipe: [RealmRecipeDiet] = recipes.map {
+                let recipe = RealmRecipeDiet()
+                recipe.id = $0.id
+                recipe.image = $0.image
+                recipe.title = $0.title
+                return recipe
+            }
+            
+            let list = List<RealmRecipeDiet>()
+            
+            realmRecipe.forEach {
+                list.append($0)
+            }
+            
+            let recipeSession = RecipeSession()
+            recipeSession.date = date
+            recipeSession.recipes = list
             result.append(recipeSession)
         }
         return result

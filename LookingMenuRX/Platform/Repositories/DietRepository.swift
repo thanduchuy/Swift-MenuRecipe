@@ -9,18 +9,15 @@ protocol DietRepositoryType {
 
 struct DietRepository: DietRepositoryType {
     
-    let sqlite = SQLiteService()
-    
     func getAllDiet() -> Observable<[Diet]> {
-        sqlite.readTableDiet()
+        RealmService.share.fetchDataDiet()
     }
     
     func addDiet(diet: Diet) -> Completable {
-        sqlite.insertQueryDiet(name: diet.name,
-                               recipeSessions: diet.recipeSessions)
+        RealmService.share.insertDiet(diet: diet)
     }
     
     func deleteDiet(idDiet: Int) -> Completable {
-        sqlite.deleteDiet(idDiet: idDiet)
+        RealmService.share.deleteDiet(idDiet: idDiet)
     }
 }

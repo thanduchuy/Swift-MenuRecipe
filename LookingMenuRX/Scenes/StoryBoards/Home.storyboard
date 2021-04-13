@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -62,13 +63,23 @@ food for you</string>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ac-lN-v7A">
-                                <rect key="frame" x="358" y="251" width="40" height="39"/>
+                                <rect key="frame" x="358" y="250.5" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="peF-H7-MPH"/>
                                     <constraint firstAttribute="width" constant="40" id="z9i-sM-fqc"/>
                                 </constraints>
                                 <color key="tintColor" name="red"/>
-                                <state key="normal" backgroundImage="magnifyingglass.circle.fill" catalog="system"/>
+                                <state key="normal" backgroundImage="magnifier"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa2-8i-ItN">
+                                <rect key="frame" x="338" y="54" width="60" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.77528391452814571" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="AFU-t3-97d"/>
+                                    <constraint firstAttribute="width" constant="60" id="cte-qY-17F"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="cart"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JTk-xz-WSu"/>
@@ -76,10 +87,12 @@ food for you</string>
                         <constraints>
                             <constraint firstItem="pYU-gX-AwT" firstAttribute="leading" secondItem="JTk-xz-WSu" secondAttribute="leading" constant="10" id="1yH-FR-L4C"/>
                             <constraint firstItem="JTk-xz-WSu" firstAttribute="trailing" secondItem="2ac-lN-v7A" secondAttribute="trailing" constant="16" id="CNy-FU-BCq"/>
+                            <constraint firstItem="JTk-xz-WSu" firstAttribute="trailing" secondItem="Wa2-8i-ItN" secondAttribute="trailing" constant="16" id="Ibs-wg-zxM"/>
                             <constraint firstItem="zFU-49-go2" firstAttribute="leading" secondItem="JTk-xz-WSu" secondAttribute="leading" constant="10" id="KOc-48-hJ8"/>
                             <constraint firstItem="3H7-of-zu8" firstAttribute="leading" secondItem="zeD-av-CFY" secondAttribute="leading" constant="10" id="Krc-0W-Fxg"/>
                             <constraint firstItem="2ac-lN-v7A" firstAttribute="centerY" secondItem="3H7-of-zu8" secondAttribute="centerY" id="Ll6-h3-o3K"/>
                             <constraint firstItem="pYU-gX-AwT" firstAttribute="top" secondItem="zFU-49-go2" secondAttribute="bottom" constant="20" id="QYW-40-hP2"/>
+                            <constraint firstItem="Wa2-8i-ItN" firstAttribute="top" secondItem="zFU-49-go2" secondAttribute="top" id="WMd-U4-d8M"/>
                             <constraint firstItem="JTk-xz-WSu" firstAttribute="trailing" secondItem="zx0-GT-aP0" secondAttribute="trailing" id="XOb-XY-gfs"/>
                             <constraint firstItem="JTk-xz-WSu" firstAttribute="bottom" secondItem="zx0-GT-aP0" secondAttribute="bottom" id="bkp-s0-0Rv"/>
                             <constraint firstItem="3H7-of-zu8" firstAttribute="top" secondItem="pYU-gX-AwT" secondAttribute="bottom" constant="10" id="dH5-7M-izZ"/>
@@ -95,6 +108,7 @@ food for you</string>
                         <outlet property="randomRecipesCollection" destination="zx0-GT-aP0" id="rnJ-bf-CeG"/>
                         <outlet property="searchBar" destination="3H7-of-zu8" id="QE7-kO-zFs"/>
                         <outlet property="searchButton" destination="2ac-lN-v7A" id="Nq8-zu-qVS"/>
+                        <outlet property="showCartButton" destination="Wa2-8i-ItN" id="jhv-sM-yZA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FDm-gX-vT9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -110,13 +124,13 @@ food for you</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mL-3P-Abe">
-                                <rect key="frame" x="10" y="54.5" width="40" height="39"/>
+                                <rect key="frame" x="10" y="54" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="AKi-lR-aE8"/>
                                     <constraint firstAttribute="height" constant="40" id="z5W-lg-brN"/>
                                 </constraints>
                                 <color key="tintColor" red="0.02922659209" green="0.02922659209" blue="0.02922659209" alpha="0.70232184200000003" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" backgroundImage="arrow.backward.circle.fill" catalog="system"/>
+                                <state key="normal" backgroundImage="previous"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IbV-FN-F0t">
                                 <rect key="frame" x="0.0" y="789.5" width="414" height="806.5"/>
@@ -222,10 +236,11 @@ a different keyword.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.backward.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="cart" width="512" height="512"/>
         <image name="logo" width="1200" height="1200"/>
+        <image name="magnifier" width="512" height="512"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="previous" width="512" height="512"/>
         <namedColor name="black">
             <color red="0.27799999713897705" green="0.32199999690055847" blue="0.36899998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

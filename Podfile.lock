@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.1)
+  - Alamofire (5.4.2)
   - Differentiator (4.0.1)
   - ESPullToRefresh (2.9.3)
   - Firebase/Core (7.10.0):
@@ -87,6 +87,11 @@ PODS:
     - RxSwift (~> 5.1)
   - ObjectMapper (4.2.0)
   - PromisesObjC (1.2.12)
+  - Realm (10.7.2):
+    - Realm/Headers (= 10.7.2)
+  - Realm/Headers (10.7.2)
+  - RealmSwift (10.7.2):
+    - Realm (= 10.7.2)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
@@ -118,15 +123,15 @@ PODS:
   - RxSwiftExt/RxCocoa (5.2.0):
     - RxCocoa (~> 5.0)
     - RxSwiftExt/Core
-  - SDWebImage (5.10.4):
-    - SDWebImage/Core (= 5.10.4)
-  - SDWebImage/Core (5.10.4)
-  - SwiftLint (0.43.1)
+  - SDWebImage (5.11.0):
+    - SDWebImage/Core (= 5.11.0)
+  - SDWebImage/Core (5.11.0)
   - Then (2.7.0)
   - Validator (3.2.1)
 
 DEPENDENCIES:
   - Alamofire
+  - ESPullToRefresh
   - Firebase/Core
   - Firebase/Database
   - MBProgressHUD
@@ -135,6 +140,7 @@ DEPENDENCIES:
   - MGLoadMore
   - "NSObject+Rx"
   - ObjectMapper
+  - RealmSwift
   - Reusable
   - RxCocoa
   - RxDataSources
@@ -142,7 +148,6 @@ DEPENDENCIES:
   - RxSwift
   - RxSwiftExt
   - SDWebImage
-  - SwiftLint
   - Then
   - Validator
 
@@ -169,6 +174,8 @@ SPEC REPOS:
     - "NSObject+Rx"
     - ObjectMapper
     - PromisesObjC
+    - Realm
+    - RealmSwift
     - Reusable
     - RxAlamofire
     - RxCocoa
@@ -178,12 +185,11 @@ SPEC REPOS:
     - RxSwift
     - RxSwiftExt
     - SDWebImage
-    - SwiftLint
     - Then
     - Validator
 
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
   Firebase: fffddd0bab8677d07376538365faa93ff3889b39
@@ -204,6 +210,8 @@ SPEC CHECKSUMS:
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  Realm: e523da9ade306c5ae87e85dc09fdef148d3e1cc1
+  RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxAlamofire: 8e144c62dcc01d68dcb366bfc542eb6dd46bab78
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
@@ -212,11 +220,10 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
-  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
-  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: 8a46582897a02031ead463020d107eb914d6fcd6
+PODFILE CHECKSUM: a282e1c0d14832574963e396028b43b4d7828fc7
 
 COCOAPODS: 1.10.1

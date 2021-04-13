@@ -11,6 +11,7 @@ import RxSwift
 
 protocol OrderNavigationType {
     func goBackView()
+    func showAlert() -> Observable<Bool>
 }
 
 struct OrderNavigation: OrderNavigationType {
@@ -18,5 +19,11 @@ struct OrderNavigation: OrderNavigationType {
     
     func goBackView() {
         navigationController.popViewController(animated: true)
+    }
+    
+    func showAlert() -> Observable<Bool> {
+        navigationController.showAlertAgree(title: "Congratulations",
+                                       message: "You have placed your order successfully",
+                                       style: .alert)
     }
 }

@@ -8,6 +8,7 @@ final class StepTaskCell: UITableViewCell, Reusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundStepTaskCell.cornerCircle()
     }
     
     func configStepTaskCell(item : Step) {

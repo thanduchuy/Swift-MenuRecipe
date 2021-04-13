@@ -16,6 +16,7 @@ extension HomeViewModel: ViewModel {
         let textSearchBar: Driver<String>
         let endEditSeachBar: Driver<Void>
         let tapSearchButton: Driver<Void>
+        let tapShowOrder: Driver<Void>
     }
     
     struct Output {
@@ -48,6 +49,11 @@ extension HomeViewModel: ViewModel {
         input.selectRecipe
             .withLatestFrom(output.$recipes.asDriver()) { $1[$0.item] }
             .do { navigator.toRecipeDetail(recipe: $0) }
+            .drive()
+            .disposed(by: disposeBag)
+        
+        input.tapShowOrder
+            .do(onNext: navigator.toOrderPlaces)
             .drive()
             .disposed(by: disposeBag)
         

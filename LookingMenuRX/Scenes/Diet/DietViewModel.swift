@@ -3,6 +3,8 @@ import RxSwift
 import RxCocoa
 import MGArchitecture
 import NSObject_Rx
+import Realm
+import RealmSwift
 
 struct DietViewModel {
     let usecase: DietUseCaseType
@@ -12,7 +14,7 @@ struct DietViewModel {
 extension DietViewModel: ViewModel {
     struct Input {
         let loadTrigger: Driver<Void>
-        let goAddDietTrigger: Driver<Void>
+        let goAddDietTrigger: Driver<DietController>
         let tapDropdown: Driver<Void>
         let selectTrigger: Driver<IndexPath>
         let selectSession: Driver<Int>
@@ -20,14 +22,15 @@ extension DietViewModel: ViewModel {
         let notification: Driver<Int>
         let deleteTrigger: Driver<IndexPath>
         let goDetailTrigger: Driver<Void>
+        let notificationAdd: Driver<Notification>
     }
     
     struct Output {
-        @Property var diets = [Diet]()
-        @Property var selectDiet = Diet()
-        @Property var selectDateDiet = [RecipeDiet]()
-        @Property var selectSessionRecipe = RecipeDiet()
-        @Property var isDropDown = true
+        var diets = BehaviorRelay<[Diet]>(value: [Diet]())
+        var selectDiet = BehaviorRelay<Diet>(value: Diet())
+        var selectDateDiet = BehaviorRelay<[RealmRecipeDiet]>(value: [RealmRecipeDiet]())
+        var selectSessionRecipe = BehaviorRelay<RealmRecipeDiet>(value: RealmRecipeDiet())
+        var isDropDown = BehaviorRelay<Bool>(value: true)
     }
     
     func transform(_ input: Input, disposeBag: DisposeBag) -> Output {
@@ -40,30 +43,31 @@ extension DietViewModel: ViewModel {
                 usecase.getAllDiet().asDriverOnErrorJustComplete()
             }
             .do {
-                output.$selectDiet.accept($0.first ?? Diet())
-                output.$selectDateDiet.accept($0.first?.recipeSessions.first?.recipes ?? [RecipeDiet]())
+                output.selectDiet.accept($0.first ?? Diet())
+                output.selectDateDiet.accept(Array($0.first?.recipeSessions.first?.recipes ?? List<RealmRecipeDiet>()))
             }
-            .drive(output.$diets)
+            .drive(output.diets)
             .disposed(by: disposeBag)
         
         input.goAddDietTrigger
-            .do(onNext: navigator.goAddDietView)
+            .do { navigator.goAddDietView(view: $0) }
             .drive()
             .disposed(by: disposeBag)
         
         input.tapDropdown
             .map { _ in
-                !output.isDropDown
+                !output.isDropDown.value
             }
-            .drive(output.$isDropDown)
+            .drive(output.isDropDown)
             .disposed(by: disposeBag)
         
-        select(trigger: input.selectTrigger, items: output.$diets.asDriver())
+        select(trigger: input.selectTrigger, items: output.diets.asDriver())
             .do {
-                output.$isDropDown.accept(true)
-                output.$selectDiet.accept($0)
-                output.$selectDateDiet.accept(usecase.getDietOnDate(recipeSession: output.selectDiet.recipeSessions, date: selectDateSession.value))
-                output.$selectSessionRecipe.accept(output.selectDateDiet[selectIndexSession.value])
+                output.isDropDown.accept(true)
+                output.selectDiet.accept($0)
+                output.selectDateDiet.accept(usecase.getDietOnDate(recipeSession: Array(output.selectDiet.value.recipeSessions),
+                                                                    date: selectDateSession.value))
+                output.selectSessionRecipe.accept(output.selectDateDiet.value[selectIndexSession.value])
             }
             .drive()
             .disposed(by: disposeBag)
@@ -71,29 +75,30 @@ extension DietViewModel: ViewModel {
         input.selectSession.asDriver()
             .do { selectIndexSession.accept($0) }
             .map {
-                if $0 < output.selectDateDiet.count {
-                    return output.selectDateDiet[$0]
+                if $0 < output.selectDateDiet.value.count {
+                    return output.selectDateDiet.value[$0]
                 } else {
-                    return RecipeDiet()
+                    return RealmRecipeDiet()
                 }
             }
-            .drive ( output.$selectSessionRecipe )
+            .drive ( output.selectSessionRecipe )
             .disposed(by: disposeBag)
         
         input.selectDateTrigger
             .do { selectDateSession.accept($0) }
             .map {
-                usecase.getDietOnDate(recipeSession: output.selectDiet.recipeSessions, date: $0)
+                usecase.getDietOnDate(recipeSession: Array(output.selectDiet.value.recipeSessions),
+                                      date: $0)
             }
             .do {
                 if $0.isEmpty {
                     navigator.showAlertError()
-                    output.$selectDateDiet.accept(output.selectDiet.recipeSessions.first?.recipes ?? [RecipeDiet]())
+                    output.selectDateDiet.accept( Array(Array(output.selectDiet.value.recipeSessions).first?.recipes ?? List<RealmRecipeDiet>()))
                 } else {
-                    output.$selectDateDiet.accept($0)
+                    output.selectDateDiet.accept($0)
                 }
-                if selectIndexSession.value < output.selectDateDiet.count  {
-                    output.$selectSessionRecipe.accept(output.selectDateDiet[selectIndexSession.value])
+                if selectIndexSession.value < output.selectDateDiet.value.count  {
+                    output.selectSessionRecipe.accept(output.selectDateDiet.value[selectIndexSession.value])
                 }
             }
             .drive()
@@ -104,15 +109,15 @@ extension DietViewModel: ViewModel {
                 usecase.getAllDiet().asDriverOnErrorJustComplete()
             }
             .do {
-                output.$diets.accept($0)
+                output.diets.accept($0)
             }
             .drive()
             .disposed(by: disposeBag)
         
         input.deleteTrigger
-            .withLatestFrom(output.$diets.asDriver()) { $1[$0.row] }
+            .withLatestFrom(output.diets.asDriver()) { $1[$0.row] }
             .do { (recipe) in
-                output.$diets.accept(output.diets.filter{ $0.id != recipe.id })
+                output.diets.accept(output.diets.value.filter{ $0.id != recipe.id })
             }
             .flatMapLatest {
                 usecase.deleteDiet(id: $0.id).asDriverOnErrorJustComplete()
@@ -122,16 +127,25 @@ extension DietViewModel: ViewModel {
         
         input.goDetailTrigger
             .do { _ in
-                let recipe = output.selectSessionRecipe
+                let recipe = output.selectSessionRecipe.value
                 navigator.goDetailView(recipe: Recipe (
                                         id: recipe.id,
                                         title: recipe.title,
-                                        readyInMinutes: 0,
+                                        readyInMinutes: Int.random(in: 10...30),
                                         image: recipe.image))
             }
             .drive()
             .disposed(by: disposeBag)
         
+        input.notificationAdd
+            .flatMapLatest { _ in
+                usecase.getAllDiet().asDriverOnErrorJustComplete()
+            }
+            .do {
+                output.diets.accept($0)
+            }
+            .drive()
+            .disposed(by: disposeBag)
         return output
     }
 }

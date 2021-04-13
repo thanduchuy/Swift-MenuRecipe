@@ -3,10 +3,11 @@ import RxCocoa
 import MGArchitecture
 import NSObject_Rx
 import Foundation
+import RealmSwift
 
 protocol DietUseCaseType {
     func getAllDiet() -> Observable<[Diet]>
-    func getDietOnDate(recipeSession: [RecipeSession],date: Date ) -> [RecipeDiet]
+    func getDietOnDate(recipeSession: [RecipeSession],date: Date ) -> [RealmRecipeDiet]
     func deleteDiet(id: Int) -> Observable<Void>
 }
 
@@ -21,8 +22,8 @@ struct DietUseCase: DietUseCaseType {
         return repository.getAllDiet()
     }
     
-    func getDietOnDate(recipeSession: [RecipeSession], date: Date) -> [RecipeDiet] {
-        var result = [RecipeDiet]()
+    func getDietOnDate(recipeSession: [RecipeSession], date: Date) -> [RealmRecipeDiet] {
+        var result = [RealmRecipeDiet]()
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(identifier: "UTC")
         formatter.dateFormat = "dd/MM/yyyy"
@@ -31,7 +32,7 @@ struct DietUseCase: DietUseCaseType {
         
         recipeSession.forEach {
             if formatter.string(from: $0.date) == formatter.string(from: dateSession) {
-                result = $0.recipes
+                result = Array($0.recipes)
             }
         }
         

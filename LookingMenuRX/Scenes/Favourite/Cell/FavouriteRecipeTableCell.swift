@@ -66,7 +66,7 @@ final class FavouriteRecipeTableCell: UITableViewCell, Reusable {
         favouriteRecipeBackground.layer.cornerRadius = ConstantFavouriteRecipeCell.radiusView
         favouriteRecipeBackground.addShadowView(radius: ConstantFavouriteRecipeCell.radiusView)
         
-        backgroundColor = .systemGray6
+        backgroundColor = .clear
         addImageRecipeFavourite()
         addTitleLabelRecipeFavourite()
         addMinuteCookingLabelRecipeFavourite()
