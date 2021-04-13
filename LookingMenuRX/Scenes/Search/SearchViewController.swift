@@ -98,7 +98,7 @@ extension SearchViewController {
         self.hideKeyboardWhenClick()
         
         ConstantSearchView.sizeSeachCellCollection.height =
-            view.frame.height / (ConstantSearchView.multipleCollectionSize + 0.5) 
+            view.frame.height / (ConstantSearchView.multipleCollectionSize) 
         ConstantSearchView.sizeSeachCellCollection.width =
             view.frame.width / ConstantSearchView.multipleCollectionSize
         keyWordSearchTextField.text = viewModel.keyWord

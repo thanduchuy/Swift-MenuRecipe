@@ -5,6 +5,7 @@ import Then
 import MGArchitecture
 import Reusable
 import NSObject_Rx
+import ESPullToRefresh
 
 private enum ConstantHomeView {
     static var sizeItemCollection = (width: CGFloat(), height: CGFloat())
@@ -15,11 +16,14 @@ final class HomeViewController: UIViewController, Bindable {
     @IBOutlet private weak var logoAppImageView: UIImageView!
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var randomRecipesCollection: UICollectionView!
-    
+    @IBOutlet weak var showCartButton: UIButton!
     var viewModel: HomeViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
         configView()
     }
     
@@ -29,7 +33,8 @@ final class HomeViewController: UIViewController, Bindable {
             selectRecipe: randomRecipesCollection.rx.itemSelected.asDriver(),
             textSearchBar: searchBar.rx.text.orEmpty.asDriver(),
             endEditSeachBar: searchBar.rx.searchButtonClicked.asDriver(),
-            tapSearchButton: searchButton.rx.tap.asDriver())
+            tapSearchButton: searchButton.rx.tap.asDriver(),
+            tapShowOrder: showCartButton.rx.tap.asDriver())
         
         let output = viewModel.transform(input, disposeBag: rx.disposeBag)
         
@@ -72,7 +77,7 @@ extension HomeViewController {
     }
     
     private func configCollectionView() {
-        ConstantHomeView.sizeItemCollection.height = randomRecipesCollection.frame.height * 0.85
+        ConstantHomeView.sizeItemCollection.height = randomRecipesCollection.frame.height * 0.8
         ConstantHomeView.sizeItemCollection.width = randomRecipesCollection.frame.width / 1.5
         
         randomRecipesCollection.do {
@@ -85,6 +90,17 @@ extension HomeViewController {
     private func configImageView() {
         logoAppImageView.do {
             $0.cornerCircle()
+        }
+        
+        searchButton.do {
+            $0.setBackgroundImage(UIImage(named: "magnifier")?.withRenderingMode(.alwaysTemplate),
+                                  for: .normal)
+            $0.tintColor = .red
+        }
+        
+        showCartButton.do {
+            $0.cornerCircle()
+            $0.shadowField()
         }
     }
     

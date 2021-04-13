@@ -22,12 +22,12 @@ target 'LookingMenuRX' do
   pod 'Validator'
   pod 'Reusable'
   pod 'Then'
+  pod 'RealmSwift'
 
   #
   pod 'SDWebImage'
   pod 'MBProgressHUD'
-  pod 'SwiftLint'
-
+  pod "ESPullToRefresh"
   # FireBase
   pod 'Firebase/Database'
   pod 'Firebase/Core'

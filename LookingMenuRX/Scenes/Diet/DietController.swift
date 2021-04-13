@@ -13,6 +13,10 @@ private enum ConstantDietView {
     static let heightDropDownTableView: CGFloat = 50
 }
 
+protocol UpdateDietDelegate: class {
+    func updateData()
+}
+
 final class DietController: UIViewController, Bindable {
     @IBOutlet private weak var listDietTableView: UITableView!
     @IBOutlet private weak var tapDropdowButton: UIButton!
@@ -29,21 +33,22 @@ final class DietController: UIViewController, Bindable {
     var viewModel: DietViewModel!
     @Property var selectSession = 0
     @Property var refeshData = 0
+    var notificationCenter = NotificationCenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         $refeshData.accept(1)
     }
     
     func bindViewModel() {
         let input = DietViewModel.Input(
             loadTrigger: Driver.just(()),
-            goAddDietTrigger: addDietButton.rx.tap.asDriver(),
+            goAddDietTrigger: addDietButton.rx.tap.map{ self }.asDriverOnErrorJustComplete(),
             tapDropdown: tapDropdowButton.rx.tap.asDriver(),
             selectTrigger: listDietTableView.rx.itemSelected.asDriver(),
             selectSession: $selectSession.asDriver(),
@@ -53,11 +58,13 @@ final class DietController: UIViewController, Bindable {
             goDetailTrigger: showRecipeStackView.rx.tapGesture()
                 .when(.recognized)
                 .asDriverOnErrorJustComplete()
-                .mapToVoid())
+                .mapToVoid(),
+            notificationAdd: NotificationCenter.default.rx.notification(Notification.Name("addDiet"))
+                            .asDriverOnErrorJustComplete())
         
         let output = viewModel.transform(input, disposeBag: rx.disposeBag)
         
-        output.$diets
+        output.diets
             .asDriver()
             .drive(listDietTableView.rx.items) { tableView, index, diet in
                 tableView.dequeueReusableCell(
@@ -70,7 +77,7 @@ final class DietController: UIViewController, Bindable {
             }
             .disposed(by: rx.disposeBag)
         
-        output.$diets
+        output.diets
             .asDriver()
             .map { CGFloat($0.count) * ConstantDietView.heightDropDownTableView }
             .drive(heightTableView)
@@ -78,18 +85,18 @@ final class DietController: UIViewController, Bindable {
         
         listDietTableView.endUpdates()
         
-        output.$isDropDown
+        output.isDropDown
             .asDriver()
             .drive(listDietTableView.rx.isHidden)
             .disposed(by: rx.disposeBag)
         
-        output.$selectDiet
+        output.selectDiet
             .asDriver()
             .map { $0.name }
             .drive(tapDropdowButton.rx.title())
             .disposed(by: rx.disposeBag)
         
-        output.$selectSessionRecipe
+        output.selectSessionRecipe
             .asDriver()
             .drive(recipeSessionBind)
             .disposed(by: rx.disposeBag)
@@ -105,7 +112,7 @@ final class DietController: UIViewController, Bindable {
                     }
                     
                     for (id, element) in owner.bottomBarCenterConstraint.enumerated() {
-                        element.priority = id == index ? .defaultHigh : .defaultLow
+                        element.isActive = id == index
                     }
                     
                     owner.configAnimation()
@@ -125,7 +132,7 @@ extension DietController {
         }
     }
     
-    private var recipeSessionBind: Binder<RecipeDiet> {
+    private var recipeSessionBind: Binder<RealmRecipeDiet> {
         return Binder(self) { view, recipe in
             let url = URL(string: recipe.image)
             view.recipeSesssionTitleLabel.text = recipe.title
@@ -171,4 +178,10 @@ extension DietController {
 
 extension DietController: StoryboardSceneBased {
     static var sceneStoryboard = StoryBoardReference.diet.storyBoard
+}
+
+extension DietController: UpdateDietDelegate {
+    func updateData() {
+        $refeshData.accept(1)
+    }
 }

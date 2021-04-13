@@ -5,6 +5,7 @@ import RxCocoa
 protocol HomeNavigatorType {
     func toRecipeDetail(recipe: Recipe)
     func toSearchView(query: String)
+    func toOrderPlaces()
 }
 
 struct HomeNavigator: HomeNavigatorType {
@@ -31,5 +32,14 @@ struct HomeNavigator: HomeNavigatorType {
         
         viewController.bindViewModel(to: viewModel)
         navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func toOrderPlaces() {
+        let viewController = OrderPlacedViewController.instantiate()
+        let useCase = OrderPlaceUseCase()
+        let viewModel = OrderPlacedViewModel(useCase: useCase)
+        
+        viewController.bindViewModel(to: viewModel)
+        navigationController.present(viewController, animated: true, completion: nil)
     }
 }

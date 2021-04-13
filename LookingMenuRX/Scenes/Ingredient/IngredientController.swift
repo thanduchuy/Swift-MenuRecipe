@@ -89,6 +89,9 @@ extension IngredientController {
         
         searchRecipeByIngredientButton.do{
             $0.cornerCircle()
+            $0.setImage(UIImage(named: "magnifier")?.withRenderingMode(.alwaysTemplate),
+                                  for: .normal)
+            $0.tintColor = .white
         }
     }
     

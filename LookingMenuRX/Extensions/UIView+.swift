@@ -33,4 +33,13 @@ extension UIView {
             $0.layer.shadowOpacity = 1.0
         }
     }
+    
+    func basicShadow() {
+        self.do {
+            $0.layer.shadowPath = UIBezierPath(rect: $0.bounds).cgPath
+            $0.layer.shadowRadius = 5
+            $0.layer.shadowOffset = .zero
+            $0.layer.shadowOpacity = 1
+        }
+    }
 }

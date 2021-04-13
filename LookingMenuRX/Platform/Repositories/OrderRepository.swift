@@ -9,10 +9,15 @@ import Foundation
 
 protocol OrderRepositoryType {
     func addOrder(order: Order) -> Completable
+    func getOrder() -> Observable<[Order]>
 }
 
 struct OrderRepository: OrderRepositoryType {
     func addOrder(order: Order) -> Completable {
         FirebaseService.share.addOrder(order: order)
+    }
+    
+    func getOrder() -> Observable<[Order]> {
+        return FirebaseService.share.readOrder()
     }
 }

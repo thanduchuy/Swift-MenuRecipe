@@ -8,8 +8,8 @@ import NSObject_Rx
 private enum ConstantAddDietView {
     static let radiusView: CGFloat = 10
     static let heightDropDownTableCell: CGFloat = 50
-    static let iconCheck = "checkmark.circle.fill"
-    static let iconUnCheck = "xmark.circle.fill"
+    static let iconCheck = "check"
+    static let iconUnCheck = "close"
     static let textFieldHeightPlaceholder = "Insert in cm"
     static let textFieldWeightPlaceholder = "Insert in kg"
     static let textFieldAgePlaceholder = "Insert in year"
@@ -27,10 +27,16 @@ final class AddDietViewController: UIViewController, Bindable {
     @IBOutlet weak var goBackButton: UIButton!
     
     var viewModel: AddDietViewModel!
+    weak var delegateHandleDiet: UpdateDietDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        delegateHandleDiet?.updateData()
     }
     
     func bindViewModel() {
@@ -91,16 +97,16 @@ extension AddDietViewController {
     private var checkButtonGenre: Binder<Bool> {
         return Binder(self) { view, check in
             guard let imageMale = UIImage(
-                    systemName: check ?
+                    named: check ?
                     ConstantAddDietView.iconCheck : ConstantAddDietView.iconUnCheck),
                   let imageFeMale = UIImage(
-                    systemName: check ?
+                    named: check ?
                     ConstantAddDietView.iconUnCheck : ConstantAddDietView.iconCheck)
             else { return }
             
-            view.checkGenreMaleButton.setBackgroundImage(imageMale,
+            view.checkGenreMaleButton.setBackgroundImage(imageMale.withRenderingMode(.alwaysTemplate),
                                                          for: .normal)
-            view.checkGenreFemaleButton.setBackgroundImage(imageFeMale,
+            view.checkGenreFemaleButton.setBackgroundImage(imageFeMale.withRenderingMode(.alwaysTemplate),
                                                            for: .normal)
             view.checkGenreMaleButton.tintColor = check ? .redDesign : .grayDesign
             view.checkGenreFemaleButton.tintColor = check ? .grayDesign : .redDesign

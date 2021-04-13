@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -22,29 +23,29 @@
                                 <rect key="frame" x="16" y="44" width="382" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwZ-u0-a1n">
-                                        <rect key="frame" x="0.0" y="0.5" width="40" height="39"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="dT2-VV-DDF"/>
                                         </constraints>
                                         <color key="tintColor" red="0.02922659209" green="0.02922659209" blue="0.02922659209" alpha="0.70232184200000003" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" backgroundImage="chevron.backward.circle.fill" catalog="system">
+                                        <state key="normal" backgroundImage="previous">
                                             <color key="titleColor" red="0.02922659209" green="0.02922659209" blue="0.02922659209" alpha="0.70232184200000003" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcC-oK-lDe">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXo-0c-mID">
                                         <rect key="frame" x="171" y="0.0" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="9nz-lK-mtW"/>
+                                            <constraint firstAttribute="width" constant="40" id="D1f-9h-crQ"/>
                                         </constraints>
-                                        <state key="normal" image="orderNow"/>
+                                        <state key="normal" backgroundImage="orderNow"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="He5-kI-bgZ">
-                                        <rect key="frame" x="342" y="1.5" width="40" height="37.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="He5-kI-bgZ">
+                                        <rect key="frame" x="342" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="oDb-cM-iJB"/>
                                         </constraints>
                                         <color key="tintColor" red="0.02922659209" green="0.02922659209" blue="0.02922659209" alpha="0.70232184200000003" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" backgroundImage="heart.fill" catalog="system">
+                                        <state key="normal" image="heartRed">
                                             <color key="titleColor" red="0.02922659209" green="0.02922659209" blue="0.02922659209" alpha="0.70232184200000003" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
@@ -116,7 +117,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <imageReference key="image" image="text.book.closed.fill" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="open-book" symbolScale="large"/>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See the recipe text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVp-qK-F1E">
@@ -140,7 +141,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <imageReference key="image" image="video.fill" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="video" symbolScale="large"/>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See the recipe video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYr-NI-yMi">
@@ -202,7 +203,7 @@
                         <outlet property="ingredientTableView" destination="gIe-TU-AzE" id="cqJ-fU-Gew"/>
                         <outlet property="minuteCookingLabel" destination="IUj-01-fv2" id="qHK-RN-jDo"/>
                         <outlet property="nameRecipeLabel" destination="tlY-l0-i79" id="CBf-iF-Abg"/>
-                        <outlet property="orderButton" destination="CcC-oK-lDe" id="8NB-oH-vea"/>
+                        <outlet property="orderButton" destination="kXo-0c-mID" id="6FX-5D-Mpq"/>
                         <outlet property="recipeFavouriteButton" destination="He5-kI-bgZ" id="oUf-GH-T3t"/>
                         <outlet property="recipeImage" destination="aY1-JF-Xva" id="Hf4-4x-Hk3"/>
                         <outletCollection property="changeTableLabel" destination="T8C-Fh-vP4" collectionClass="NSMutableArray" id="Cwr-Po-PvZ"/>
@@ -339,13 +340,13 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXM-5J-eLB">
-                                <rect key="frame" x="16" y="60.5" width="40" height="39"/>
+                                <rect key="frame" x="16" y="60" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4ux-Xe-j6H"/>
                                     <constraint firstAttribute="width" constant="40" id="i0x-yj-bEp"/>
                                 </constraints>
                                 <color key="tintColor" name="black"/>
-                                <state key="normal" backgroundImage="arrow.left.circle.fill" catalog="system"/>
+                                <state key="normal" backgroundImage="previous"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kH2-Jq-gVh">
                                 <rect key="frame" x="72" y="65.5" width="326" height="29"/>
@@ -393,13 +394,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ML7-03-H9c">
-                                <rect key="frame" x="16" y="60.5" width="40" height="39"/>
+                                <rect key="frame" x="16" y="60" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="EKM-ej-1KC"/>
                                     <constraint firstAttribute="height" constant="40" id="gXr-x0-B4x"/>
                                 </constraints>
                                 <color key="tintColor" name="black"/>
-                                <state key="normal" backgroundImage="chevron.left.circle.fill" catalog="system">
+                                <state key="normal" backgroundImage="previous">
                                     <color key="titleColor" name="black"/>
                                 </state>
                             </button>
@@ -516,14 +517,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="chevron.backward.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="chevron.left.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="heartRed" width="256" height="256"/>
         <image name="logo" width="1200" height="1200"/>
+        <image name="open-book" width="512" height="512"/>
         <image name="orderNow" width="512" height="512"/>
-        <image name="text.book.closed.fill" catalog="system" width="115" height="128"/>
-        <image name="video.fill" catalog="system" width="128" height="82"/>
+        <image name="previous" width="512" height="512"/>
+        <image name="video" width="512" height="512"/>
         <namedColor name="black">
             <color red="0.27799999713897705" green="0.32199999690055847" blue="0.36899998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

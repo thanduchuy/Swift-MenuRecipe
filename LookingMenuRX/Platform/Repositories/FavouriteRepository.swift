@@ -5,29 +5,23 @@ protocol FavouriteRepositoryType {
     func addFavouriteRecipe(recipe: Recipe) -> Completable
     func deleteFavouriteRecipe(idRecipe: Int) -> Completable
     func checkFavouriteRecipe(idRecipe: Int) -> Observable<Bool>
-    func getAllFavouriteRecipe() -> Observable<[Recipe]>
+    func getAllFavouriteRecipe() -> Observable<[RecipeFavourite]>
 }
 
 struct FavouriteRepository: FavouriteRepositoryType {
-    
-    let sqlite = SQLiteService()
-    
     func addFavouriteRecipe(recipe: Recipe) -> Completable {
-        sqlite.insertRecipeFavourite(id: recipe.id,
-                                     title: recipe.title,
-                                     readyInMinutes: recipe.readyInMinutes,
-                                     image: recipe.image)
+        RealmService.share.insertRecipeFavourite(recipe: recipe)
     }
     
     func deleteFavouriteRecipe(idRecipe: Int) -> Completable {
-        sqlite.deleteDietFavourite(idDiet: idRecipe)
+        RealmService.share.deleteRecipeFavourite(idRecipe: idRecipe)
     }
     
-    func getAllFavouriteRecipe() -> Observable<[Recipe]> {
-        sqlite.readTableDietFavourite()
+    func getAllFavouriteRecipe() -> Observable<[RecipeFavourite]> {
+        RealmService.share.fetchDataFavourite()
     }
     
     func checkFavouriteRecipe(idRecipe: Int) -> Observable<Bool> {
-        sqlite.checkRecipeFavourite(idDiet: idRecipe)
+        RealmService.share.checkRecipeFavourite(idRecipe: idRecipe)
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 protocol DietNavigatorType {
-    func goAddDietView()
+    func goAddDietView(view: DietController)
     func goDetailView(recipe: Recipe)
     func showAlertError()
 }
@@ -10,13 +10,14 @@ protocol DietNavigatorType {
 struct DietNavigator: DietNavigatorType {
     unowned let navigationController: UINavigationController
     
-    func goAddDietView() {
+    func goAddDietView(view: DietController) {
         let viewController = AddDietViewController.instantiate()
         let useCase = AddDietUseCase()
         let navigator = AddDietNavigator(navigationController: navigationController)
         let viewModel = AddDietViewModel(navigator: navigator,
                                          usecase: useCase)
         
+        viewController.delegateHandleDiet = view
         viewController.bindViewModel(to: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }

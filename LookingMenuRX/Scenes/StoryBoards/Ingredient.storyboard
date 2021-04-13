@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -60,16 +61,19 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOt-yG-oZH">
-                                <rect key="frame" x="315" y="796.5" width="83" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOt-yG-oZH">
+                                <rect key="frame" x="348" y="796" width="50" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.29411764709999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="G9B-wT-fq0"/>
                                     <constraint firstAttribute="height" constant="50" id="bF7-pJ-OIU"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" backgroundImage="mail.and.text.magnifyingglass" catalog="system">
+                                <state key="normal" image="magnifier">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m1O-qP-c6G">
@@ -142,7 +146,6 @@
                             <constraint firstItem="9AW-Fl-Fyb" firstAttribute="bottom" secondItem="HOt-yG-oZH" secondAttribute="bottom" constant="16" id="bvU-H3-XI7"/>
                             <constraint firstItem="HOt-yG-oZH" firstAttribute="top" secondItem="m1O-qP-c6G" secondAttribute="bottom" constant="16" id="fug-NY-OyE"/>
                             <constraint firstItem="Z0i-CE-q2F" firstAttribute="top" secondItem="8iU-8X-2iA" secondAttribute="top" constant="8" id="hMm-sm-Xao"/>
-                            <constraint firstItem="HOt-yG-oZH" firstAttribute="width" secondItem="8iU-8X-2iA" secondAttribute="width" multiplier="0.2" id="n0V-KZ-eUt"/>
                             <constraint firstItem="9AW-Fl-Fyb" firstAttribute="trailing" secondItem="HOt-yG-oZH" secondAttribute="trailing" constant="16" id="sAO-JD-5im"/>
                             <constraint firstAttribute="trailing" secondItem="Z0i-CE-q2F" secondAttribute="trailing" constant="8" id="zHF-ln-s18"/>
                         </constraints>
@@ -163,7 +166,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mail.and.text.magnifyingglass" catalog="system" width="128" height="95"/>
+        <image name="magnifier" width="512" height="512"/>
         <image name="trash.circle" catalog="system" width="128" height="121"/>
         <namedColor name="red">
             <color red="0.97600001096725464" green="0.37299999594688416" blue="0.38400000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
